@@ -6,6 +6,10 @@ import TypewriterEffect from "@/components/TypewriterEffect";
 import Cube3D from "@/components/Cube3D";
 import MorphShape from "@/components/MorphShape";
 import SkillsOrbit from "@/components/SkillsOrbit";
+import FadeInSection from "@/components/FadeInSection";
+import AboutSection from "@/components/AboutSection";
+import ProjectsMilestone from "@/components/ProjectsMilestone";
+import CertificationsSection from "@/components/CertificationsSection";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin, FaCodepen } from "react-icons/fa";
 
@@ -42,106 +46,35 @@ export default function Home() {
         </section>
 
         {/* CONTENT CONTROLLED SECTIONS */}
-        <div className="relative w-full">
+        <div className="relative w-full z-10">
 
-          {/* ABOUT SECTION */}
-          <section id="about" className="py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
-          <h2 className="text-phi-h2 font-heading font-bold mb-10 border-l-4 border-neonOrange pl-4">About Me</h2>
-          
-          <div className="bevel-card bg-lightCard/70 dark:bg-darkCard/70 p-8 md:p-12 rounded-2xl backdrop-blur-sm border border-foreground/5 leading-relaxed text-phi-h4 font-light">
-            <p className="mb-6">
-              I'm a driven professional with 2-3 years of experience in <strong className="font-bold text-neonOrange">Front-End Web Developer</strong>, passionate about making positive changes and delivering top-notch results. I'm all about <strong className="font-bold">web designing, creating wonderful UI using famous framework such as React.js or Next.js</strong> and love diving into <strong className="font-bold">develop convenient UI design for every user</strong>.
-            </p>
-            
-            <p className="mb-4">Here's a bit about what I can do:</p>
-            
-            <ul className="list-disc list-inside space-y-3 mb-6 ml-4">
-              <li><strong className="text-neonOrange">Creative Innovator:</strong> I enjoy finding new ideas and pushing boundaries to create unique solutions.</li>
-              <li><strong className="text-neonOrange">Project Management Pro:</strong> I make sure projects stay on track and hit the high standards.</li>
-              <li><strong className="text-neonOrange">Tech Enthusiast:</strong> I'm skilled in <strong className="font-bold">VS code for coding and Inkscape for designing</strong> and use tech to boost efficiency and creativity.</li>
-            </ul>
-            
-            <p>
-              I've been part of <strong className="font-bold">freecodecamp online courses and Dicoding Academy courses</strong>. I'm always ready to adapt and excel in dynamic environments. Excited to bring my creativity, strategic mindset, and <strong className="font-bold">diligence</strong> to new opportunities.
-            </p>
-          </div>
-        </section>
+          <FadeInSection>
+            <AboutSection />
+          </FadeInSection>
 
-        {/* PROJECTS SECTION */}
-        <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
-          <h2 className="text-phi-h2 font-heading font-bold mb-14 border-l-4 border-neonOrange pl-4">My Projects</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Project 1 */}
-            <div className="bevel-card group bg-lightCard/70 dark:bg-darkCard/70 rounded-2xl overflow-hidden border border-transparent">
-              <div className="h-48 bg-gray-200 dark:bg-gray-800 flex items-center justify-center p-4">
-                <div className="w-full h-full border-2 border-dashed border-gray-400 dark:border-gray-600 rounded flex items-center justify-center text-sm text-gray-500">
-                  [FILL IN THE BLANK: Insert Image Link]
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-phi-h3 font-heading font-bold mb-2">Simple web brochure</h3>
-                <p className="text-foreground/70 text-sm">Simple basic modern web design.</p>
-              </div>
-            </div>
+          <FadeInSection>
+            {/* PROJECTS SECTION */}
+            <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
+              <h2 className="text-phi-h2 font-heading font-bold mb-14 border-l-4 border-neonOrange pl-4">My Projects</h2>
+              <ProjectsMilestone />
+            </section>
+          </FadeInSection>
 
-            {/* Project 2 */}
-            <div className="bevel-card group bg-lightCard/70 dark:bg-darkCard/70 rounded-2xl overflow-hidden border border-transparent">
-              <div className="h-48 bg-gray-200 dark:bg-gray-800 flex items-center justify-center p-4">
-                <div className="w-full h-full border-2 border-dashed border-gray-400 dark:border-gray-600 rounded flex items-center justify-center text-sm text-gray-500">
-                  [FILL IN THE BLANK: Insert Image Link]
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-phi-h3 font-heading font-bold mb-2">Calculator App</h3>
-                <p className="text-foreground/70 text-sm">Append more complex logic to web app.</p>
-              </div>
-            </div>
+          <FadeInSection>
+            {/* CERTIFICATIONS SECTION */}
+            <section id="certifications" className="py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
+              <h2 className="text-phi-h2 font-heading font-bold mb-10 border-l-4 border-neonOrange pl-4">My Certifications</h2>
+              <CertificationsSection />
+            </section>
+           </FadeInSection>
 
-            {/* Project 3 */}
-            <div className="bevel-card group bg-lightCard/70 dark:bg-darkCard/70 rounded-2xl overflow-hidden border border-transparent">
-              <div className="h-48 bg-gray-200 dark:bg-gray-800 flex items-center justify-center p-4">
-                <div className="w-full h-full border-2 border-dashed border-gray-400 dark:border-gray-600 rounded flex items-center justify-center text-sm text-gray-500">
-                  [FILL IN THE BLANK: Insert Image Link]
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-phi-h3 font-heading font-bold mb-2">Library manager</h3>
-                <p className="text-foreground/70 text-sm">Clear, useful, and simple web app.</p>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* CERTIFICATIONS SECTION */}
-        <section id="certifications" className="py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
-          <h2 className="text-phi-h2 font-heading font-bold mb-10 border-l-4 border-neonOrange pl-4">My Certifications</h2>
-          
-          <div className="bevel-card bg-lightCard/70 dark:bg-darkCard/70 p-8 rounded-2xl flex items-center justify-center min-h-[300px] border border-foreground/5 relative overflow-hidden">
-             {/* Decorative glow */}
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-neonOrange/10 blur-[100px] rounded-full pointer-events-none"></div>
-             
-             <div className="w-full max-w-3xl border-4 border-double border-foreground/20 p-8 rounded text-center relative z-10 bg-background/50 backdrop-blur-sm">
-                <h4 className="text-phi-body font-mono tracking-widest uppercase mb-4 text-foreground/60">freeCodeCamp (^)</h4>
-                <p className="text-phi-body mb-2">This certifies that</p>
-                <h3 className="text-phi-h4 font-heading italic mb-4">Tsaqif an naufal</h3>
-                <p className="text-phi-body mb-4">successfully completed the</p>
-                <h2 className="text-phi-h3 font-heading font-bold mb-6">Front End Development Libraries</h2>
-                <p className="text-phi-body text-foreground/60">Developer Certification on December 28, 2024</p>
-                <div className="mt-8 text-phi-body text-neonOrange">
-                   [FILL IN THE BLANK: Insert Verification Link/QR Code]
-                 </div>
-              </div>
-           </div>
-         </section>
-
-         {/* SKILLS SECTION */}
-         <section id="skills" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
-           <h2 className="text-phi-h2 font-heading font-bold mb-6 border-l-4 border-neonOrange pl-4">Technologies I Use</h2>
-           <SkillsOrbit />
-         </section>
+         <FadeInSection>
+           {/* SKILLS SECTION */}
+           <section id="skills" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
+             <h2 className="text-phi-h2 font-heading font-bold mb-6 border-l-4 border-neonOrange pl-4">Technologies I Use</h2>
+             <SkillsOrbit />
+           </section>
+         </FadeInSection>
 
         </div> {/* END CONTENT WRAPPER */}
 

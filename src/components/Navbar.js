@@ -5,11 +5,11 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-  { href: "#about",          icon: User,   label: "About"           },
-  { href: "#projects",       icon: Folder, label: "Projects"        },
-  { href: "#certifications", icon: Award,  label: "Certifications"  },
-  { href: "#skills",         icon: Code,   label: "Skills"          },
-  { href: "#contact",        icon: Mail,   label: "Contact"         },
+  { href: "#about",          icon: User,   label: "About"       },
+  { href: "#projects",       icon: Folder, label: "Projects"    },
+  { href: "#certifications", icon: Award,  label: "Certs"       },
+  { href: "#skills",         icon: Code,   label: "Skills"      },
+  { href: "#contact",        icon: Mail,   label: "Contact"     },
 ];
 
 export default function Navbar() {
@@ -28,42 +28,46 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-40 transition-all duration-500 ${
       scrolled ? "bg-background/85 backdrop-blur-md py-3 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.3)]" : "bg-transparent py-5 border-transparent shadow-none"
     }`}>
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+      <div className="mx-auto px-20 flex items-center justify-between">
+        {/* Brand - Left */}
+        <div className="flex-1 flex justify-start">
+          <a href="#" className="flex items-center text-foreground hover:text-neonOrange transition-colors duration-300 hover:scale-110 transform">
+            <Box size={32} />
+          </a>
+        </div>
 
-        {/* Brand */}
-        <a href="#" className="flex items-center text-foreground hover:text-neonOrange transition-colors duration-300 hover:scale-110 transform">
-          <Box size={32} />
-        </a>
-
-        {/* Nav links */}
-        <div className="flex items-center gap-1">
+        {/* Nav links - Center */}
+        <div className="flex-1 flex justify-center">
           <div className="flex gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="group flex items-center gap-0 px-2 py-2 rounded-xl transition-all duration-300
-                  text-foreground/60 hover:text-neonOrange
-                  hover:bg-neonOrange/10 hover:shadow-[0_0_14px_rgba(255,107,0,0.25)]
-                  border border-transparent hover:border-neonOrange/30"
+                className="group relative flex items-center justify-center p-2 rounded-xl transition-all duration-300
+                  text-foreground/60 hover:text-white dark:hover:text-background
+                  hover:bg-foreground dark:hover:bg-neonOrange
+                  h-10 w-10 md:w-20 overflow-hidden border border-transparent"
               >
-                <link.icon size={18} className="flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
-                {/* Label slides in */}
-                <span className="
-                  max-w-0 overflow-hidden opacity-0
-                  group-hover:max-w-[96px] group-hover:opacity-100 group-hover:ml-2
-                  transition-all duration-400 ease-in-out whitespace-nowrap
-                  text-sm font-quicksand font-medium hidden md:block
-                ">
-                  {link.label}
-                </span>
+                {/* Fixed-size Inner Wrapper that slides upwards smoothly (Height 200%) */}
+                <div className="absolute top-0 left-0 w-full h-[200%] flex flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:group-hover:-translate-y-1/2">
+                  {/* Top Slide Slot: The Icon (Half height of 200% parent = 100% of physical bounding box) */}
+                  <div className="h-1/2 w-full flex items-center justify-center">
+                    <link.icon size={24} className="flex-shrink-0 transition-transform duration-300" />
+                  </div>
+                  {/* Bottom Slide Slot: The Label */}
+                  <div className="h-1/2 w-full hidden md:flex items-center justify-center px-1">
+                    <span className="text-[13px] font-quicksand font-semibold whitespace-nowrap">
+                      {link.label}
+                    </span>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
+        </div>
 
-          <div className="w-px h-5 bg-foreground/20 mx-2" />
-
-          {/* Theme toggle */}
+        {/* Theme toggle - Right */}
+        <div className="flex-1 flex justify-end items-center gap-2">
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -72,8 +76,8 @@ export default function Navbar() {
               aria-label="Toggle Theme"
             >
               {theme === "dark"
-                ? <Sun size={18} className="text-neonOrange" />
-                : <Moon size={18} />}
+                ? <Sun size={24} className="text-neonOrange" />
+                : <Moon size={24} />}
             </button>
           )}
         </div>

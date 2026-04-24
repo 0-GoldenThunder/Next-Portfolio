@@ -1,6 +1,6 @@
 "use client";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls, Environment, Edges } from "@react-three/drei";
 import { useRef, useState } from "react";
 
 function SpinningCube({ isInteracting }) {
@@ -17,11 +17,19 @@ function SpinningCube({ isInteracting }) {
   });
 
   return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[3.2, 3.2, 3.2]} />
-      {/* Rough metal texture, no lights applied yet */}
-      <meshStandardMaterial color="#ff6b00" roughness={0.6} metalness={0.8} />
-    </mesh>
+    <group ref={meshRef}>
+      <mesh>
+        <boxGeometry args={[3.2, 3.2, 3.2]} />
+        <meshStandardMaterial visible={false} />
+        <Edges
+           linewidth={3}
+           color="#ff6b00" 
+           emissive="#ff6b00" 
+           emissiveIntensity={2.5} 
+           toneMapped={false}
+        />
+      </mesh>
+    </group>
   );
 }
 
