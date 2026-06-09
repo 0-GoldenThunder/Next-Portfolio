@@ -70,7 +70,19 @@ export default function Navbar() {
         <div className="flex-1 flex justify-end items-center gap-2">
           {mounted && (
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={(e) => {
+                const x = e.clientX;
+                const y = e.clientY;
+                document.documentElement.style.setProperty('--x', x + 'px');
+                document.documentElement.style.setProperty('--y', y + 'px');
+                if (document.startViewTransition) {
+                  document.startViewTransition(() =>
+                    setTheme(theme === "dark" ? "light" : "dark")
+                  );
+                } else {
+                  setTheme(theme === "dark" ? "light" : "dark");
+                }
+              }}
               className="p-2 rounded-xl hover:bg-foreground/10 hover:shadow-[0_0_10px_rgba(255,107,0,0.15)] 
                 border border-transparent hover:border-foreground/20 transition-all duration-300"
               aria-label="Toggle Theme"
