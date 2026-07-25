@@ -20,11 +20,11 @@ export default {
         quicksand: ["var(--font-quicksand)", "sans-serif"],
       },
       fontSize: {
-        'phi-body': '1rem',      // 16px
-        'phi-h4': '1.618rem',    // ~25.8px
-        'phi-h3': '2.618rem',    // ~41.8px
-        'phi-h2': '4.236rem',    // ~67.7px
-        'phi-h1': '6.854rem',    // ~109.6px
+        'phi-body': 'clamp(0.875rem, 1vw + 0.5rem, 1rem)',
+        'phi-h4':   'clamp(1rem, 1.5vw + 0.5rem, 1.618rem)',
+        'phi-h3':   'clamp(1.5rem, 2.5vw + 0.5rem, 2.618rem)',
+        'phi-h2':   'clamp(2rem, 4vw + 0.5rem, 4.236rem)',
+        'phi-h1':   'clamp(2.5rem, 6vw + 1rem, 6.854rem)',
       },
       animation: {
         'glitch': 'glitch 1s linear infinite',

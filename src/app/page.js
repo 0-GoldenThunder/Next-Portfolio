@@ -25,7 +25,7 @@ export default function Home() {
       <main className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-neonOrange selection:text-white">
         
         {/* HERO SECTION */}
-        <section id="hero" className="hero-section relative min-h-[100vh] flex flex-col justify-center pt-20 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+        <section id="hero" className="hero-section relative min-h-[100vh] flex flex-col justify-center pt-16 md:pt-20 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
           <div className="z-10 text-left mb-8 md:w-1/2 min-h-[150px]">
             {isLoaded && (
               <>
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           
           {/* Straddling Cube - Positioned to cross into the next section */}
-          <div className="absolute right-[-15%] sm:-right-10 lg:-right-32 top-[45vh] w-[85vw] h-[85vw] sm:w-[500px] sm:h-[500px] lg:w-[800px] lg:h-[800px] pointer-events-none z-20">
+          <div className="absolute right-[-15%] sm:-right-10 lg:-right-32 top-[45vh] w-[85vw] h-[85vw] sm:w-[500px] sm:h-[500px] lg:w-[800px] lg:h-[800px] max-w-[280px] max-h-[280px] sm:max-w-none sm:max-h-none pointer-events-none z-20">
             <Cube3D />
           </div>
         </section>
@@ -54,7 +54,7 @@ export default function Home() {
 
           <FadeInSection>
             {/* PROJECTS SECTION */}
-            <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
+            <section id="projects" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
               <h2 className="text-phi-h2 font-heading font-bold mb-14 border-l-4 border-neonOrange pl-4">My Projects</h2>
               <ProjectsMilestone />
             </section>
@@ -62,7 +62,7 @@ export default function Home() {
 
           <FadeInSection>
             {/* CERTIFICATIONS SECTION */}
-            <section id="certifications" className="py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
+            <section id="certifications" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-6xl mx-auto">
               <h2 className="text-phi-h2 font-heading font-bold mb-10 border-l-4 border-neonOrange pl-4">My Certifications</h2>
               <CertificationsSection />
             </section>
@@ -70,7 +70,7 @@ export default function Home() {
 
          <FadeInSection>
            {/* SKILLS SECTION */}
-           <section id="skills" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
+            <section id="skills" className="py-16 md:py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto overflow-hidden">
              <h2 className="text-phi-h2 font-heading font-bold mb-6 border-l-4 border-neonOrange pl-4">Technologies I Use</h2>
              <SkillsOrbit />
            </section>

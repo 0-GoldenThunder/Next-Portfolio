@@ -164,7 +164,7 @@ export default function ProjectsMilestone() {
                         /* Vertical Card List */
                         <div className="flex flex-col gap-6 justify-center w-full max-w-3xl mx-auto">
                             {milestone.projects.slice(0, expanded[i] ? milestone.projects.length : 3).map((proj, pIdx) => (
-                                 <a key={pIdx} href={proj.link} target="_blank" rel="noopener noreferrer" className="bevel-card flex flex-row h-64 group bg-lightCard/70 dark:bg-darkCard/70 rounded-2xl overflow-hidden border-2 border-transparent hover:border-neonOrange hover:shadow-[0_0_30px_rgba(255,107,0,0.4)] relative">
+                                 <a key={pIdx} href={proj.link} target="_blank" rel="noopener noreferrer" className="bevel-card flex flex-row min-h-[160px] md:h-64 group bg-lightCard/70 dark:bg-darkCard/70 rounded-2xl overflow-hidden border-2 border-transparent hover:border-neonOrange hover:shadow-[0_0_30px_rgba(255,107,0,0.4)] relative">
                                    
                                    {/* Glass Shimmer Reflection */}
                                    <div className="absolute top-0 left-0 w-[40%] h-full pointer-events-none z-10 animate-shine-mirror flex gap-2 opacity-0" style={{ transform: 'translateX(-150%) skewX(-30deg)' }}>
@@ -180,9 +180,9 @@ export default function ProjectsMilestone() {
                                    </div>
                                    {/* Details Side (slides right and disappears to let the image expand) */}
                                    <div className="w-[45%] flex-shrink-0 flex flex-col justify-center px-6 py-4 text-left transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden opacity-100 translate-x-0 group-hover:translate-x-24 group-hover:w-0 group-hover:opacity-0 group-hover:px-0 relative">
-                                     <div className="w-[300px]">
-                                         <h3 className="text-xl font-heading font-bold mb-2 text-foreground/90 transition-colors duration-300 whitespace-nowrap">{proj.title}</h3>
-                                         <p className="text-foreground/70 text-sm font-quicksand leading-relaxed whitespace-normal break-words">{proj.desc}</p>
+                                      <div className="w-full md:w-[300px]">
+                                          <h3 className="text-sm sm:text-xl font-heading font-bold mb-2 text-foreground/90 transition-colors duration-300 whitespace-nowrap">{proj.title}</h3>
+                                          <p className="text-xs sm:text-sm text-foreground/70 font-quicksand leading-relaxed whitespace-normal break-words">{proj.desc}</p>
                                      </div>
                                    </div>
                                  </a>

@@ -33,7 +33,7 @@ export default function AboutSection() {
   const track2Items = Array.from({ length: 24 }).map((_, i) => i);
 
   return (
-    <section id="about" className="relative w-full h-[80vh] min-h-[600px] flex flex-col items-center justify-center overflow-hidden py-24 mb-10">
+    <section id="about" className="relative w-full h-[80vh] min-h-[400px] md:min-h-[600px] flex flex-col items-center justify-center overflow-hidden py-24 mb-10">
       
       {/* Absolute 3D Marquee Sub-layer */}
       <div 
@@ -54,7 +54,7 @@ export default function AboutSection() {
             {/* Track 1 (Left to Right) */}
             <div className="flex gap-6 w-max animate-marquee-right">
                {track1Items.map((_, i) => (
-                  <div key={`t1-${i}`} className="w-64 h-48 rounded-2xl shadow-2xl overflow-hidden shrink-0">
+                   <div key={`t1-${i}`} className="w-36 sm:w-64 h-28 sm:h-48 rounded-2xl shadow-2xl overflow-hidden shrink-0">
                      <img src={MARQUEE_IMAGES[i % MARQUEE_IMAGES.length]} alt="" className="w-full h-full object-cover" />
                   </div>
                ))}
@@ -63,7 +63,7 @@ export default function AboutSection() {
             {/* Track 2 (Right to Left) */}
             <div className="flex gap-6 w-max animate-marquee-left ml-[-50vw]">
                {track2Items.map((_, i) => (
-                  <div key={`t2-${i}`} className="w-80 h-56 rounded-3xl shadow-xl overflow-hidden shrink-0">
+                   <div key={`t2-${i}`} className="w-44 sm:w-80 h-32 sm:h-56 rounded-3xl shadow-xl overflow-hidden shrink-0">
                      <img src={MARQUEE_IMAGES[(i + 3) % MARQUEE_IMAGES.length]} alt="" className="w-full h-full object-cover" />
                   </div>
                ))}

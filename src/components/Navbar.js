@@ -28,7 +28,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 w-full z-40 transition-all duration-500 ${
       scrolled ? "bg-background/85 backdrop-blur-md py-3 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.3)]" : "bg-transparent py-5 border-transparent shadow-none"
     }`}>
-      <div className="mx-auto px-20 flex items-center justify-between">
+      <div className="mx-auto px-4 sm:px-8 md:px-16 lg:px-20 flex items-center justify-between">
         {/* Brand - Left */}
         <div className="flex-1 flex justify-start">
           <a href="#" className="flex items-center text-foreground hover:text-neonOrange transition-colors duration-300 hover:scale-110 transform">

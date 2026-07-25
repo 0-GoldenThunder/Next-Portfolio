@@ -2,7 +2,7 @@
 
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const skills = [
   { name: "HTML5",      icon: FaHtml5,        color: "#E34F26" },
@@ -27,10 +27,23 @@ export default function SkillsOrbit() {
   // DOM Refs
   const trackReverseRef = useRef(null);
   const counterRefs = useRef([]);
+  const containerRef = useRef(null);
+  const orbitRadiusRef = useRef(200);
 
   const total = skills.length;
-  // Radius of the orbit in pixels
-  const OrbitRadius = 200;
+
+  useEffect(() => {
+    const updateRadius = () => {
+      if (containerRef.current) {
+        const w = containerRef.current.offsetWidth;
+        orbitRadiusRef.current = Math.min(200, Math.floor(w * 0.38));
+      }
+    };
+    updateRadius();
+    const ro = new ResizeObserver(updateRadius);
+    if (containerRef.current) ro.observe(containerRef.current);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     let animationId;
@@ -40,30 +53,23 @@ export default function SkillsOrbit() {
       const dt = time - lastTime;
       lastTime = time;
 
-      // 1) Smoothly interpolate the speed multiplier towards 0 (if hovered)
       const targetSpeed = isHovered.current ? 0 : 1;
       speedRef.current += (targetSpeed - speedRef.current) * (dt * 0.006);
 
-      // 2) Increment base rotation angle
       rotationRef.current = (rotationRef.current + (dt * 0.012) * speedRef.current) % 360;
 
-      // 3) Make the inner styling track spin backward purely for aesthetics
       if (trackReverseRef.current) trackReverseRef.current.style.transform = `rotate(${-rotationRef.current * 1.2}deg)`;
       
-      // 4) Physically translate each icon around the circle using Trigonometry!
-      // This prevents tumbling/self-rotation because the icons' local axis never spins.
+      const radius = orbitRadiusRef.current;
       counterRefs.current.forEach((el, index) => {
         const offsetDeg = (index / total) * 360;
         const currentAngleDeg = offsetDeg + rotationRef.current;
         const angleRad = currentAngleDeg * (Math.PI / 180);
 
-        const x = Math.cos(angleRad) * OrbitRadius;
-        const y = Math.sin(angleRad) * OrbitRadius;
+        const x = Math.cos(angleRad) * radius;
+        const y = Math.sin(angleRad) * radius;
 
         if (el) {
-          // translate(-50%, -50%) to perfectly center the pivot point
-          // Then move out to X, Y
-          // Finally rotateX(-65deg) to perfectly stand them up facing the camera inside the tilted container!
           el.style.transform = `translate(-50%, -50%) translateX(${x}px) translateY(${y}px) rotateX(-65deg)`;
         }
       });
@@ -76,7 +82,7 @@ export default function SkillsOrbit() {
   }, [total]);
 
   return (
-    <div className="relative w-full max-w-xl mx-auto aspect-square flex items-center justify-center py-20 my-10 overflow-visible" style={{ perspective: '1200px' }}>
+    <div ref={containerRef} className="relative w-full max-w-xl mx-auto aspect-square flex items-center justify-center py-10 md:py-20 my-6 md:my-10 overflow-visible" style={{ perspective: '1200px' }}>
 
       {/* ── Center hub ── */}
       {/* Added pointer-events-none so mouse perfectly passes through into the icons underneath */}
