@@ -2,6 +2,16 @@
 
 import { useState, useEffect } from "react";
 
+const MARQUEE_IMAGES = [
+  "/images/AbstractWall.jpg",
+  "/images/40 Really Easy Watercolor Paintings - Proactive Creative - Guides for Visual Artists.jpg",
+  "/images/Aesthetic Neutral Phone Wallpaper _ White + Beige Abstract Clean Girl Style.jpg",
+  "/images/Classical — Ivory, Taupe & Gold Elegant Abstract Wall Art (Digital Download).jpg",
+  "/images/jpg.jpg",
+  "/images/jpg(1).jpg",
+  "/images/jpg(2).jpg",
+];
+
 const WORDS = [
   "Creative", "Imaginative", "Cooperative", "Relentless", 
   "Innovative", "Visionary", "Determined", "Resourceful", 
@@ -41,23 +51,23 @@ export default function AboutSection() {
              transformStyle: 'preserve-3d'
           }}
         >
-           {/* Track 1 (Left to Right) */}
-           <div className="flex gap-6 w-max animate-marquee-right">
-              {track1Items.map((_, i) => (
-                 <div key={`t1-${i}`} className="w-64 h-48 bg-foreground/10 backdrop-blur-md border border-foreground/20 rounded-2xl shadow-2xl flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-foreground/20" />
-                 </div>
-              ))}
-           </div>
+            {/* Track 1 (Left to Right) */}
+            <div className="flex gap-6 w-max animate-marquee-right">
+               {track1Items.map((_, i) => (
+                  <div key={`t1-${i}`} className="w-64 h-48 rounded-2xl shadow-2xl overflow-hidden shrink-0">
+                     <img src={MARQUEE_IMAGES[i % MARQUEE_IMAGES.length]} alt="" className="w-full h-full object-cover" />
+                  </div>
+               ))}
+            </div>
 
-           {/* Track 2 (Right to Left) */}
-           <div className="flex gap-6 w-max animate-marquee-left ml-[-50vw]">
-              {track2Items.map((_, i) => (
-                 <div key={`t2-${i}`} className="w-80 h-56 bg-foreground/5 backdrop-blur-lg border border-foreground/10 rounded-3xl shadow-xl flex items-center justify-center">
-                    <div className="w-20 h-20 rounded border border-foreground/20 bg-foreground/10" />
-                 </div>
-              ))}
-           </div>
+            {/* Track 2 (Right to Left) */}
+            <div className="flex gap-6 w-max animate-marquee-left ml-[-50vw]">
+               {track2Items.map((_, i) => (
+                  <div key={`t2-${i}`} className="w-80 h-56 rounded-3xl shadow-xl overflow-hidden shrink-0">
+                     <img src={MARQUEE_IMAGES[(i + 3) % MARQUEE_IMAGES.length]} alt="" className="w-full h-full object-cover" />
+                  </div>
+               ))}
+            </div>
         </div>
       </div>
 
