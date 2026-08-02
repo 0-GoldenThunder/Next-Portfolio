@@ -41,22 +41,20 @@ export default function CertificationsSection() {
         }
 
         return (
-          <div 
+          <div
             key={i}
-            className="absolute inset-0 w-full transition-all duration-700 shadow-2xl ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={{ 
-               transform: `translateY(${y}px) scale(${scale}) rotate(${rotation}deg)`,
-               zIndex: z,
-               opacity: opacity
+            className="absolute inset-0 max-w-3xl mx-auto border-2 border-foreground/10 rounded-2xl overflow-hidden group hover:border-neonOrange transition-all duration-700 shadow-2xl ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{
+              transform: `translateY(${y}px) scale(${scale}) rotate(${rotation}deg)`,
+              zIndex: z,
+              opacity: opacity
             }}
           >
-            <div className="max-w-3xl mx-auto border-2 border-foreground/10 rounded-2xl overflow-hidden group hover:border-neonOrange transition-colors duration-500 relative h-full">
-              <img src={cert.image} alt={cert.title} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 text-left bg-white/70 dark:bg-black/60 backdrop-blur-md transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-full">
-                <h4 className="text-sm font-mono tracking-widest uppercase mb-1 text-neonOrange">{cert.issuer}</h4>
-                <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-1">{cert.title}</h2>
-                <p className="text-foreground/60 text-sm font-quicksand">{cert.date}</p>
-              </div>
+            <img src={cert.image} alt={cert.title} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+            <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 text-left bg-white/70 dark:bg-black/60 backdrop-blur-md transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-full">
+              <h4 className="text-sm font-mono tracking-widest uppercase mb-1 text-neonOrange">{cert.issuer}</h4>
+              <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-1">{cert.title}</h2>
+              <p className="text-foreground/60 text-sm font-quicksand">{cert.date}</p>
             </div>
           </div>
         );
