@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaArrowRight } from "react-icons/fa";
 
 const MILESTONES = [
   {
@@ -83,13 +83,13 @@ export default function ProjectsMilestone() {
           100% { background-position: 200% 0; }
         }
         .animate-flow-forward {
-          background-size: 200% 100%;
+          background-size: 200% 100%; 
           animation: flow-forward 3s linear infinite;
         }
       `}</style>
 
       {/* ── 3D COVERFLOW TIMELINE TRACK ── */}
-      <div className="relative w-full h-[140px] mb-8 overflow-x-clip overflow-visible flex items-center">
+      <div className="relative w-full h-[140px] mb-8 flex items-center">
         {/* The native translating array holding dots & lines */}
         <div
           className="absolute left-0 top-1/2 -translate-y-1/2 w-full flex items-center transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
@@ -277,6 +277,11 @@ export default function ProjectsMilestone() {
                           rel="noopener noreferrer"
                           className="bevel-card flex flex-row min-h-[160px] md:h-64 group bg-lightCard/70 dark:bg-darkCard/70 rounded-2xl overflow-hidden border-2 border-transparent hover:border-neonOrange hover:shadow-[0_0_30px_rgba(255,107,0,0.4)] relative"
                         >
+                          {/* Visit Indicator */}
+                          <span className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-neonOrange text-white font-heading text-sm font-semibold tracking-wider opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-[0_0_20px_rgba(255,107,0,0.6)]">
+                            Visit <FaArrowRight size={14} />
+                          </span>
+
                           {/* Glass Shimmer Reflection */}
                           <div
                             className="absolute top-0 left-0 w-[40%] h-full pointer-events-none z-10 animate-shine-mirror flex gap-2 opacity-0"
